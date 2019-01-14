@@ -1,3 +1,6 @@
+//Motion Bounce Illision Code by Christopher Biggs
+// v1.0 1.14.19
+
 //toggle objects and assignment variables
 var toggleRun;
 var toggleMakeClick;

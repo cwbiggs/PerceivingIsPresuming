@@ -47,12 +47,13 @@ function setup() {
   toggleAudio = new Toggle("Change Audio", rightAudio);
   toggleReveal = new Toggle("Reveal Words", isRevealed);
 
-
+correctAudio.stop();
+  wrongAudio.stop();
 
   v = createVideo('assets/thatFatBatvideo.mp4');
   v.hide();
   v.loop();
-
+  v.stop();
   degradeSlider = new Slider(450+borders[0], borders[1]+33, 600, "Degrade", 0);
 }
 

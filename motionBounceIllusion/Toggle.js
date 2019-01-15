@@ -3,7 +3,6 @@ function Toggle(n, initialValue) {
   var prevClicked = initialValue;
   var on = initialValue;
   var frameClicked = 0;
-  var name = n;
 
   this.make = function(xpos, ypos, size) {
     noFill();
@@ -33,7 +32,7 @@ function Toggle(n, initialValue) {
     textSize(12);
     fill(255);
     noStroke();
-    text(name, xpos, ypos-10);
+    text(n, xpos, ypos-10);
   }
 
   this.isChecked = function() {

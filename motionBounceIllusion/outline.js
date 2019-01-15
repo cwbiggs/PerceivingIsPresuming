@@ -1,9 +1,10 @@
-function outline(s, h) {
-  noFill();
-  stroke(20, 100, 255, 255);
+function outline(x, y, w, l, h, cs) {
   strokeWeight(1);
-  line(0, h, width, h);
+  stroke(20, 100, 255, 255);  
+  //top line
+  line(x, h+y, w+x, h+y);
+  //line below ellipse
+  line(x, h+cs+y, w+x, h+cs+y);
   ellipseMode(CENTER);
-  ellipse(s*.5, s*.5+h, s, s);
-  line(0, h+s, width, h+s);
+  ellipse(w*.5+x, cs*.5+y+h, cs, cs);
 }

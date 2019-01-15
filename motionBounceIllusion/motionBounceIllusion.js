@@ -1,6 +1,15 @@
 //Motion Bounce Illision Code by Christopher Biggs
-// v1.0 1.14.19
-//this should cause a needed upload
+// v2.0 1.15.19
+
+//MyBackgound object
+var thisBackground;
+
+//header space
+var header = 50; 
+//workspace outline
+var borders = [50, 50, 400, 700]; //upper corner, width, length
+//circle size
+var circleSize = 400;
 
 //toggle objects and assignment variables
 var toggleRun;
@@ -8,7 +17,7 @@ var toggleMakeClick;
 var isRunning = true;
 var isClicking = false;
 
-//SelectSound Object
+//SelectSound graphic
 var currentSound;
 
 //slider objects
@@ -25,21 +34,23 @@ var bl; //ball blur
 var rot; //ball rotation
 var qn = 1; //ball quantity
 
-//global variables
-var dir = 1; //ball direction
+//variables for slider return values
 var minSize = 10; //min ball size
 var maxSize = 40; //max ball size
 var minSpeed = 1; //min ball speed
 var maxSpeed = 6; //max ball speed
+
+//variables for bouncing balls
+//global variables
+var dir = 1; //ball direction
 var x = -200+maxSize/2; //initial ball x position
 var y = 0; //initial ball y position
-var header = 50; //header space
+var moveBalls = [200+borders[0], 200+header+borders[1]];
 
 //collision detection variable
 var hit = false; 
 var prevHit = false;
 var changeHit = false;
-
 
 //sound file player object
 var sound1; 
@@ -55,57 +66,56 @@ function preload() {
 }
 
 function setup() {
-  var myCanvasBallClick = createCanvas(410, 700);
-  myCanvasBallClick.parent('myContainerClick');
-  
+  var myCanvasBallClick = createCanvas(displayWidth, displayHeight);
+  //create togle objects
   toggleRun = new Toggle("Run", isRunning); //name, default value
   toggleMakeClick = new Toggle("Sound", isClicking);
+  //select sound object
+  currentSound = new SelectSound(0, 200+borders[0], 5+borders[1], 150, 40); //default sound, rect params
+  //create slider objects
+  var sliderXpos = 50+borders[0];
+  var sliderYposOffset = header + borders[1];
+  sliderSize = new Slider(sliderXpos, 440+sliderYposOffset, borders[2], "Size", 50); //xpos, ypos, length, name, initial value
+  sliderSpeed = new Slider(sliderXpos, 480+sliderYposOffset, borders[2], "Speed", 50);
+  sliderOpacity = new Slider(sliderXpos, 520 + sliderYposOffset, borders[2], "Opacity", 75);
+  sliderRotate = new Slider(sliderXpos, 560+sliderYposOffset, borders[2], "Rotate", 0);
+  sliderQuantity = new Slider(sliderXpos, 600+sliderYposOffset, borders[2], "Quantity", 0);
   
-  sliderSize = new Slider(50, 440+header, "Size", 50); //pad from left, ypos, name, initial value
-  sliderSpeed = new Slider(50, 480+header, "Speed", 50);
-  sliderOpacity = new Slider(50, 520 + header, "Opacity", 75);
-  sliderRotate = new Slider(50, 560+header, "Rotate", 0);
-  sliderQuantity = new Slider(50, 600+header, "Quantity", 0);
-
-  currentSound = new SelectSound(0, 200, 5, 150, 40); //default sound, rect params
+  thisBackground = new MyBackground("MOTION-BOUNCE ILLUSION");
 }
 
 function draw() {
-  background(0);
-  outline(width, header); //draw visual segmentations
-  
+  thisBackground.shade(20);
+  thisBackground.name(borders[0], borders[1]-5);
+  //create workspace
+  workspace(borders[0], borders[1], borders[2], borders[3]); //borders of workspace
+  outline(borders[0], borders[1], borders[2], borders[3], header, circleSize); //size, header space, circlesize
   //create toggles and assign return values
-  toggleRun.make(50, 25, 20); //xpos, ypos, size
+  toggleRun.make(borders[0]+10, 25+borders[1], 20); //xpos, ypos, size
   isRunning = toggleRun.isChecked();
-  toggleMakeClick.make(100, 25, 20);
+  toggleMakeClick.make(borders[0] + 50, 25+borders[1], 20);
   isClicking = toggleMakeClick.isChecked();
-  
+  //create selectSound
+  currentSound.make();
+  var s = currentSound.sound();
   //create sliders
   sliderSize.make();
   sliderSpeed.make();
   sliderOpacity.make();
   sliderRotate.make();
   sliderQuantity.make();
-  
   //assign slider return values to variables and show slider values
   sz = sliderSize.value(minSize, maxSize); //returns current position and maps to value range
-  sliderSize.post(0, 1, 5, "f"); //shows the current value based on range, display length, data type
+  sliderSize.post(0, 1, 5, "f", true); //range, number of characters to display, datetype (i || not), displayed normalized value
   sp = sliderSpeed.value(minSpeed, maxSpeed);
-  sliderSpeed.post(0, 1, 5, "f");
+  sliderSpeed.post(0, 1, 5, "f", true);
   bl = sliderOpacity.value(255, 20);
-  sliderOpacity.post(0, 1, 5, "f");
+  sliderOpacity.post(0, 1, 5, "f", true);
   rot = sliderRotate.value(0, 6.28);
-  sliderRotate.post(0,360, 3, "i");
+  sliderRotate.post(0,360, 3, "i", false);
   qn = Math.floor(sliderQuantity.value(2, 9));
-  //sliderQuantity.post(2,18, 2, "I");
-  
-  //create selectSound
-  currentSound.make();
-  var s = currentSound.sound();
-  
   //create balls
   bouncingBalls();
-  
   //check for collision and play file
   collisionSound(s);
 }

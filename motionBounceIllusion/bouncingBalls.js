@@ -1,6 +1,6 @@
 function bouncingBalls() {
   if (isRunning) {
-    translate(200, 200+header);
+    translate(moveBalls[0], moveBalls[1]);
     stroke(255, bl);
     strokeWeight(sz);
     rotate(rot);

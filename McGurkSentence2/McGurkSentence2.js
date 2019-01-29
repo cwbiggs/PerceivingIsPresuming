@@ -59,7 +59,7 @@ function setup() {
     randSelect = false;
   }
   */
-  isSelectedPrev = randSelect;
+  isSelectedPrev = true;
   isSelected = true;
   selectVocalist = new Toggle("Change Person", isSelected); 
   toggleReveal = new Toggle("Reveal Words", isRevealed);

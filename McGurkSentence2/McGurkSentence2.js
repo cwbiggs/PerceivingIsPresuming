@@ -51,15 +51,16 @@ function setup() {
   toggleHideVideo = new Toggle("Hide Video", isHidden); 
   toggleAudio = new Toggle("Change Audio", rightAudio);
 
-
+  /*
   var randSelect;
   if (random(0, 2)>=1) {
     randSelect = true;
   } else {
     randSelect = false;
   }
+  */
   isSelectedPrev = randSelect;
-  isSelected = randSelect;
+  isSelected = true;
   selectVocalist = new Toggle("Change Person", isSelected); 
   toggleReveal = new Toggle("Reveal Words", isRevealed);
 

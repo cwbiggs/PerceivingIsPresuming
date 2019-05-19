@@ -16,12 +16,6 @@ function setup() {
 function draw() {
   fill(value);
   rect(25, 25, 200, 200);
-  if(clickRange) {
-   song.play();
-   song.loop();
-  } else {
-   song.stop();
-  }
   
 }
 
@@ -29,8 +23,11 @@ function touchStarted() {
   if (clickRange(25, 200, 25, 200)) {
     if (value === 0) {
       value = 255;
+         song.play();
+   song.loop();
     } else {
       value = 0;
+      song.stop();
     }
   }
 }

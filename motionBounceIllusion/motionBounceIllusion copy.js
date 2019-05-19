@@ -1,20 +1,20 @@
 //Motion Bounce Illision Code by Christopher Biggs
-// v2.0 5.15.19
+// v2.0 1.15.19
 
-//MyBackgound object – includes background color and name
+//MyBackgound object
 var thisBackground;
 
 //header space
 var header = 50; 
 //workspace outline
-var borders = [50, 50, 400, 700]; //upper corner, size
+var borders = [50, 50, 400, 700]; //upper corner, width, length
 //circle size
 var circleSize = 400;
 
 //toggle objects and assignment variables
 var toggleRun;
 var toggleMakeClick;
-var isRunning = false;
+var isRunning = true;
 var isClicking = false;
 
 //SelectSound graphic
@@ -27,7 +27,7 @@ var sliderOpacity;
 var sliderRotate;
 var sliderQuantity;
 
-//assignemnt variables from slider
+//assignemnts variables from slider
 var sz; //ball size
 var sp; //ball speed
 var bl; //ball blur
@@ -58,13 +58,8 @@ var sf = new Array(6);
 //add button for reset values
 var reset;
 
-var fr = 60;
-
 function setup() {
-  //create a canvas the size of the window
-  var myCanvasBallClick = createCanvas(displayWidth, displayHeight); 
-  //set framerate
-  frameRate(fr);
+  var myCanvasBallClick = createCanvas(displayWidth, displayHeight);
   //create togle objects
   toggleRun = new Toggle("Run", false); //name, default value
   toggleMakeClick = new Toggle("Sound", false);
@@ -73,49 +68,48 @@ function setup() {
   //create slider objects
   var sliderXpos = 50+borders[0];
   var sliderYposOffset = header + borders[1];
-  sliderSize = new Slider(sliderXpos, 440+sliderYposOffset, borders[2], "Size", 80); //xpos, ypos, length, name, initial value along length - 400
+  sliderSize = new Slider(sliderXpos, 440+sliderYposOffset, borders[2], "Size", 50); //xpos, ypos, length, name, initial value
   sliderSpeed = new Slider(sliderXpos, 480+sliderYposOffset, borders[2], "Speed", 50);
   sliderOpacity = new Slider(sliderXpos, 520 + sliderYposOffset, borders[2], "Opacity", 75);
   sliderRotate = new Slider(sliderXpos, 560+sliderYposOffset, borders[2], "Rotate", 0);
   sliderQuantity = new Slider(sliderXpos, 600+sliderYposOffset, borders[2], "Quantity", 0);
-  //load sound files
+
   for (var i = 0; i < sf.length; i++) {
     var name = "click" + i;
     var thisFile = "assets/"+name+ ".mp3";
     sf[i] = createAudio(thisFile);
     sf[i].autoplay(false);
+    //ss.option(name);
   }
-  //create background and name
+  
+
+
+
   thisBackground = new MyBackground("MOTION-BOUNCE ILLUSION");
-  //a button to reset to the default parameters for the sliders
+  
   reset = createButton('reset');
-  //location of reset button
   reset.position(300+borders[0], 15+borders[1]);
-  //function to call, if reset button is pressed
   reset.mousePressed(init);
   
 }
 
 function draw() {
-  //draw background and name
   thisBackground.shade(20);
   thisBackground.name(borders[0], borders[1]-5);
-  //draw outline for workspace
+  //create workspace
   workspace(borders[0], borders[1], borders[2], borders[3]); //borders of workspace
-  //draw specifics of workspace
   outline(borders[0], borders[1], borders[2], borders[3], header, circleSize); //size, header space, circlesize
-  //draw outline and text for instructions
   instructions(borders[2]+borders[0], borders[1], borders[2], borders[3]);
-  //draw toggles and assign return values
+  //create toggles and assign return values
   toggleRun.make(borders[0]+10, 25+borders[1], 20); //xpos, ypos, size
   isRunning = toggleRun.isChecked();
   toggleMakeClick.make(borders[0] + 50, 25+borders[1], 20);
   isClicking = toggleMakeClick.isChecked();
-  //draw selectSound
+  //create selectSound
   currentSound.make();
-  //variable to hold current sound file number
   var s = currentSound.sound();
-  //draw sliders
+  print(s);
+  //create sliders
   sliderSize.make();
   sliderSpeed.make();
   sliderOpacity.make();
@@ -131,7 +125,7 @@ function draw() {
   rot = sliderRotate.value(0, 6.28);
   sliderRotate.post(0, 360, 3, "i", false);
   qn = Math.floor(sliderQuantity.value(2, 9));
-  //draw balls
+  //create balls
   bouncingBalls();
   //check for collision and play file
   collisionSound(s);

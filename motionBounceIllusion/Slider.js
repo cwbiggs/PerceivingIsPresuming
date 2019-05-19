@@ -9,7 +9,7 @@ function Slider(x, y, l, n, initialValue) {
     stroke(255, 100);
     strokeWeight(1);
     line(x, y, l, y);
-
+  //move slider
     if (mouseY > y-20 && mouseY <= y+15 && mouseIsPressed) {
       mouseXpos = constrain(mouseX, x, l);
       strokeWeight(15);
@@ -25,12 +25,12 @@ function Slider(x, y, l, n, initialValue) {
     noStroke();
     text(n, x, y-15);
   }
-
+  //return a normalized value
   this.value = function(min, max) {
     normValue = (mouseXpos-x)/(l-x);
     return normValue *(max-min) + min;
   }
-
+  //show value
   this.post = function(min, max, displayLength, dataType, n) {
     var value; 
     if (!n) {
@@ -52,5 +52,9 @@ function Slider(x, y, l, n, initialValue) {
     fill(255);
     noStroke();
     text(shorten, l, y-15);
+  }
+  //reset to initial value
+  this.reset = function() {
+    mouseXpos = initialValue+x;
   }
 }

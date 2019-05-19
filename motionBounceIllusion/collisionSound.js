@@ -12,20 +12,7 @@ function collisionSound(s) {
   }
 
   if (changeHit && isClicking ) {
-    switch(s) {
-    case 0: 
-      sound1.play();
-      break;
-    case 1:
-      sound2.play();
-      break;
-    case 2:
-      sound3.play();
-      break;
-    case 3: 
-      sound4.play();
-      break;
-    }
+    sf[s].play();
   }
   prevHit = hit;
 }

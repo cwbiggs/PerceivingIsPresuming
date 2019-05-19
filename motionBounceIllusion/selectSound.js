@@ -1,7 +1,7 @@
 function SelectSound(init, x, y, x1, y1) {
 
   var sound = init;
-  var soundNames = ["click1", "click2", "click3", "click4"];
+  var soundNames = ["Click 0", "Click 1", "Click 2", "Click 3", "Click 4", "Click 5"];
   var clicked = false;
   var frameClicked = 0;
   var prevClicked = false;
@@ -27,7 +27,7 @@ function SelectSound(init, x, y, x1, y1) {
 
     if (mouseX >=x && mouseX <=x1+x && mouseY >= y && mouseY <= y1+y) { 
       if (!clicked) {
-        fill(255);
+        fill(155, 155, 0, 255);
         noStroke();
         rect(x, y, x1, y1);
         textSize(12);

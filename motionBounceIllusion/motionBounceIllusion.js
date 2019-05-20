@@ -71,7 +71,7 @@ var yPosLinks = 20;
 
 function setup() {
   //create a canvas the size of the window
-  var myCanvasBallClick = createCanvas(displayWidth, displayHeight); 
+  var myCanvasBallClick = createCanvas(displayWidth, displayHeight, WEBGL); 
   //set framerate
   frameRate(fr);
   //create togle objects
@@ -93,6 +93,7 @@ function setup() {
     var thisFile = "assets/"+name+ ".mp3";
     sf[i] = createAudio(thisFile);
     sf[i].autoplay(false);
+    sf[i].stop();
   }
   //create background and name
   thisBackground = new MyBackground("MOTION-BOUNCE ILLUSION");

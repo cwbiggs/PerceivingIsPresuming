@@ -1,5 +1,6 @@
 function instructions(x, y, w, l) {
   //background of workarea
+  textAlign(LEFT, TOP);
   noStroke();
   fill(0);
   rect(x, y, w, l);
@@ -13,7 +14,7 @@ function instructions(x, y, w, l) {
   textSize(36);
   fill(255);
   noStroke();
-  text("INSTRUCTIONS", x+20, y+35);
+  text("INSTRUCTIONS", x+20, y+10);
   textSize(20);
   text("1. Click the box below 'Run' and watch the animation. Do you see the balls pass through each other or bounce off each other?", x+20, y+10+header, w-30, 100);
   text(" 2. If you see the balls pass through each other, change the size and transpency to their minimum values and the speed to the minimum value. If you see the balss bounce off set other, adjust the size and transparency to their minimum values and the speed to the maximum value. What do you see now?", 

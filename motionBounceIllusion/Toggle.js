@@ -41,7 +41,8 @@ function Toggle(n, initialValue) {
     textSize(12);
     fill(255);
     noStroke();
-    text(n, xpos, ypos-10);
+    textAlign(LEFT, BOTTOM);
+    text(n, xpos, ypos-5);
   }
   //return value for current state
   this.isChecked = function() {

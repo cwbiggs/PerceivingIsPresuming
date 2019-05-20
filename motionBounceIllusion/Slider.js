@@ -10,7 +10,7 @@ function Slider(x, y, l, n, initialValue) {
     strokeWeight(1);
     line(x, y, l, y);
   //move slider
-    if (mouseY > y-20 && mouseY <= y+15 && mouseIsPressed) {
+    if (mouseY > y-20 && mouseY <= y+15 && mouseX >=x && mouseX <=l && mouseIsPressed) {
       mouseXpos = constrain(mouseX, x, l);
       strokeWeight(15);
       stroke(54, 255, 0);
@@ -23,6 +23,7 @@ function Slider(x, y, l, n, initialValue) {
     textSize(12);
     fill(255);
     noStroke();
+    textAlign(LEFT, BOTTOM);
     text(n, x, y-15);
   }
   //return a normalized value
@@ -51,6 +52,7 @@ function Slider(x, y, l, n, initialValue) {
     textSize(12);
     fill(255);
     noStroke();
+    textAlign(LEFT, BOTTOM);
     text(shorten, l, y-15);
   }
   //reset to initial value

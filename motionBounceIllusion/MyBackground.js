@@ -10,6 +10,7 @@ function MyBackground(n) {
     textSize(24);
     fill(54, 255, 0, 255);
     noStroke();
+    textAlign(LEFT, BOTTOM);
     text(n, x, y);
   }
 }

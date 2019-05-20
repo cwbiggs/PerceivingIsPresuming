@@ -65,7 +65,7 @@ var fixed;
 //link to any example
 var accessExamples;
 var e = "Example";
-var exampleCount = 10;
+var exampleNames = ['example 1', 'example 2', 'example 3'];
 
 function setup() {
   //create a canvas the size of the window
@@ -106,8 +106,8 @@ function setup() {
   //link to any examples
   accessExamples = createSelect();
   accessExamples.position(borders[2]+borders[1]+270, 700);
-  for(var i = 1; i <= exampleCount; i++) {
-    accessExamples.option(e);
+  for(var i = 0; i < exampleNames.length; i++) {
+    accessExamples.option(exampleNames[i]);
   }
 }
 

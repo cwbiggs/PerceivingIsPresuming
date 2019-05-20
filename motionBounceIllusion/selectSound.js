@@ -13,7 +13,7 @@ function SelectSound(init, x, y, x1, y1) {
     textSize(12);
     fill(255);
     noStroke();
-    text(soundNames[sound], x+10, y+25);
+    text(soundNames[sound], x+50, y+25);
   }
 
   this.sound = function() {

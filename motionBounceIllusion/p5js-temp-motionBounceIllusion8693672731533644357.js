@@ -67,6 +67,8 @@ var accessExamples;
 var e = "Example";
 var exampleNames = ['example 1', 'example 2', 'example 3'];
 
+var yPosLinks = 20;
+
 function setup() {
   //create a canvas the size of the window
   var myCanvasBallClick = createCanvas(displayWidth, displayHeight); 
@@ -101,11 +103,11 @@ function setup() {
   //function to call, if reset button is pressed
   reset.mousePressed(init);
   //create link objects
-  home = new Link(borders[2]+borders[1]+20, 700, 50, 20, 12, "HOME");
-  fixed = new Link(borders[2]+borders[1]+100, 700, 150, 20, 12, "PLAY STATIC EXAMPLE");
+  home = new Link(borders[2]+borders[1]+20, yPosLinks, 50, 20, 12, "HOME");
+  fixed = new Link(borders[2]+borders[1]+100, yPosLinks, 150, 20, 12, "PLAY STATIC EXAMPLE");
   //link to any examples
   accessExamples = createSelect();
-  accessExamples.position(borders[2]+borders[1]+270, 700);
+  accessExamples.position(borders[2]+borders[1]+270, yPosLinks);
   for(var i = 0; i < exampleNames.length; i++) {
     accessExamples.option(exampleNames[i]);
   }

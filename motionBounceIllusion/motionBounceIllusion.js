@@ -69,6 +69,16 @@ var exampleNames = ['example 1', 'example 2', 'example 3'];
 
 var yPosLinks = 20;
 
+function preload(){
+    for (var i = 0; i < sf.length; i++) {
+    var name = "click" + i;
+    var thisFile = "assets/"+name+ ".mp3";
+    sf[i] = createAudio(thisFile);
+    sf[i].autoplay(false);
+  }
+  
+}
+
 function setup() {
   //create a canvas the size of the window
   var myCanvasBallClick = createCanvas(displayWidth, displayHeight); 
@@ -89,10 +99,6 @@ function setup() {
   sliderQuantity = new Slider(sliderXpos, 600+sliderYposOffset, borders[2], "Quantity", 0);
   //load sound files
   for (var i = 0; i < sf.length; i++) {
-    var name = "click" + i;
-    var thisFile = "assets/"+name+ ".mp3";
-    sf[i] = createAudio(thisFile);
-    sf[i].autoplay(false);
     sf[i].stop();
   }
   //create background and name

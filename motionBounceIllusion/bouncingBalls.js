@@ -13,7 +13,7 @@ function bouncingBalls() {
 
     x=x+sp*dir;
 
-    if (x>200-sz/4 || x < -200+sz/4) {
+    if (x>200-sz/3 || x < -200+sz/3) {
       dir *= -1;
     }
   }

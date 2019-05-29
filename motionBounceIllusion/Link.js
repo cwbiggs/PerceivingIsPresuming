@@ -1,37 +1,40 @@
 //the class declaration
-function Link(x, y, x1, y1, size, name) {
-  //position, textSize, name
-   var pos = [x, y, x1, y1];
-   var s = size;
-   var n = name;
-   var textLength = n.length;
+function Link() {
+  //textSize, name   
    var frameClicked = 0;
-       var upperRight = pos[0]+pos[2];
-    var upperLeft = pos[1]+pos[3];
+   var hover = false;
 
-  this.make = function() {
+
+  this.make = function(name, size, x, y, x1, y1, link) {
     fill(155, 100);
     noStroke();
-    rect(pos[0], pos[1], pos[2], pos[3]);
+    rect(x, y, x1, y1);
 
-    textSize(s);
+    textSize(size);
     fill(255, 235, 5, 255);
     noStroke();
     textAlign(LEFT, TOP);
-    text(n, x+s/2, y+s/2);
-  }
-  
-  this.active = function(goTo) { 
+    text(name, x+size/2, y+size/2);
+
     if (mouseIsPressed) {
       frameClicked++;
     } else {
       frameClicked = 0;
     }
     //if all location and timing and location conditions are met, then switch the state of the toggle
-    if (mouseX >=pos[0] && mouseX <=upperRight && mouseY >= pos[1] && mouseY <= upperLeft && frameClicked > 0 && frameClicked < 2) { 
-       window.open(goTo);
-    } 
+    if (mouseX >=x && mouseX <=x+x1 && mouseY >= y && mouseY <= y+y1) { 
+        hover = true;
+        if(frameClicked > 0 && frameClicked < 2){
+       window.location.href = link;
+        }
+    } else {
+      hover = false;
+    }
+    
   }
-  
 
+  this.help = function(){
+    
+    return hover;
+  }
 }

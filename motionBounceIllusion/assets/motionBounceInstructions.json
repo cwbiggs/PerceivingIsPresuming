@@ -5,5 +5,5 @@
         "4. Click the box below 'Sound' to turn on sound. Hopefully, when sound is on it will make it so that you see the balls bounce and with sound off you see the balls pass. If not, manipulate the size, speed, and opactity such that you see the balls pass with no sound and bounce with sound. ",
         "5. At any point, click 'reset' to load the default settings"
         ],
-    "boundry" : [70, 150, 60, 105, 50]
+    "boundry" : [70, 150, 60, 145, 50]
 }

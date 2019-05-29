@@ -5,7 +5,7 @@ function Components(n, x, y, x1, y1) {
   var home = new Link(); //home link for navigation
   var static = new Link(); //link to static example for navigation
   var exampleLinks = new Menu(); //a menu with links to all examples
-  var workspaceUpRightCorn = x+x1;
+  var workspaceUpRightCorn = x + x1;
 
   //color for background
   this.background = function (s) {
@@ -39,7 +39,10 @@ function Components(n, x, y, x1, y1) {
     strokeWeight(1);
     stroke(20, 100, 255, 255);
     //top line
-    line(x, o + y, workspaceUpRightCorn, o + y);
+    for (var i = 0; i < o.length; i++) {
+      var yPos = o[i]+y;
+      line(x, yPos, workspaceUpRightCorn, yPos);
+    }
   }
   //circles in workspace
   this.workshopCirc = function (cs, o) {
@@ -62,7 +65,7 @@ function Components(n, x, y, x1, y1) {
     //dividing line for "instructions" text
     strokeWeight(1);
     var offset = y + instructionsTitleSpace;
-    line(workspaceUpRightCorn, offset , w + workspaceUpRightCorn, offset);
+    line(workspaceUpRightCorn, offset, w + workspaceUpRightCorn, offset);
     //draw "instuctions" text
     textAlign(LEFT, BOTTOM);
     fill(255);
@@ -89,24 +92,24 @@ function Components(n, x, y, x1, y1) {
     //draw divider for navigation header
     strokeWeight(1);
     stroke(20, 100, 255, 255);
-    line(x1 + x, il+50 - 75, iw + x1 + x, il+50 - 75);
+    line(x1 + x, il + 50 - 75, iw + x1 + x, il + 50 - 75);
     //draw "navigation" text
     fill(255);
     textAlign(LEFT, TOP);
     textSize(16);
-    text("NAVIGATATION",x1 + x + 5, il+60-75);
+    text("NAVIGATATION", x1 + x + 5, il + 60 - 75);
     //name, size, rectangular parameters, link
-    home.make("HOME", 12, x1 + x + 5, il+60-50, 50, 25, "https://christopherbiggsmusic.com/" );
+    home.make("HOME", 12, x1 + x + 5, il + 60 - 50, 50, 25, "https://christopherbiggsmusic.com/");
     //print(home.help);
-    if(home.help()){
+    if (home.help()) {
       helper.make("click to return to main page");
     }
-    static.make("VIEW STATIC EXAMPLE", 12, x1+x+ 60, il+60-50, 150, 25, "https://www.youtube.com/watch?v=KQ6zr6kCPj8&list=RDMMKQ6zr6kCPj8&start_radio=1com");
-    if(static.help()){
+    static.make("VIEW STATIC EXAMPLE", 12, x1 + x + 60, il + 60 - 50, 150, 25, "https://www.youtube.com/watch?v=KQ6zr6kCPj8&list=RDMMKQ6zr6kCPj8&start_radio=1com");
+    if (static.help()) {
       helper.make("click to view a fixed example");
     }
-    exampleLinks.make("Show/Hide Example List", 12, x1+x+ 220, il+60-50, 150, 25, x1+iw+50);
-    if(exampleLinks.help()){
+    exampleLinks.make("Show/Hide Example List", 12, x1 + x + 220, il + 60 - 50, 150, 25, x1 + iw + 50);
+    if (exampleLinks.help()) {
       helper.make("click to open or close links to each example");
     }
   }

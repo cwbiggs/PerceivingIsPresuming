@@ -6,7 +6,7 @@ function RotateSelect(init, x, y, x1, y1, items) {
   var prevClicked = false;
   var hover=false;
 
-  this.make = function() {
+  this.make = function(tx, ty) {
     textAlign(LEFT, BOTTOM);
     fill(155, 100);
     noStroke();
@@ -14,7 +14,7 @@ function RotateSelect(init, x, y, x1, y1, items) {
     textSize(12);
     fill(255);
     noStroke();
-    text(items[current], x+50, y+25);
+    text(items[current], x+tx, y+ty);
     hover = mouseX >=x && mouseX <=x1+x && mouseY >= y && mouseY <= y1+y;
   }
 
@@ -44,7 +44,7 @@ function RotateSelect(init, x, y, x1, y1, items) {
     helper.make(helpText);
     }
   }
-
+  // reset to init state
   this.reset=function(){
     current = init;
   }

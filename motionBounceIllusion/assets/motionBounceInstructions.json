@@ -1,8 +1,9 @@
 {
     "text" : ["1. Click the box below 'Run' and watch the animation. Do you see the balls pass through each other or bounce off each other?",
-        " 2. If you see the balls pass through each other, change the size and transpency to their minimum values and the speed to the minimum value. If you see the balss bounce off set other, adjust the size and transparency to their minimum values and the speed to the maximum value. What do you see now?",
-        "3. Click 'Reset'",
-        "4. Click the box below 'Sound' to turn on sound. Hopefully, when sound is on and the settings are reset, it will make it so that you see the balls bounce and with sound off you see the balls pass. If not, manipulate the size, speed, and opactity such that you see the balls pass with no sound and bounce with sound. "
+        " 2. If you see the balls pass through each other, change the size and transpency to their minimum values and the speed to the maximum value. If you see the balss bounce off set other, adjust the size and transparency to their maximum values and the speed to the mainimum value. Does this change what you see?",
+        "3. Find the settings for size, speed, and transparency for which you just see the balls pass",
+        "4. Click the box below 'Sound' to turn on sound. Hopefully, when sound is on it will make it so that you see the balls bounce and with sound off you see the balls pass. If not, manipulate the size, speed, and opactity such that you see the balls pass with no sound and bounce with sound. ",
+        "5. At any point, click 'reset' to load the default settings"
         ],
-    "boundry" : [70, 150, 40, 150]
+    "boundry" : [70, 150, 60, 105, 50]
 }

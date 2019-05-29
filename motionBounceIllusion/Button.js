@@ -47,6 +47,4 @@ function Button(n, x, y, x1, y1) {
             helper.make(helpText);
         }
     }
-
-
 }

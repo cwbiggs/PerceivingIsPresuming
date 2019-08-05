@@ -1,0 +1,9 @@
+{
+    "text" : ["1. Click the box below 'Run' and watch the flashes. How many flashes do you see? Try to watch with 'fuzzy' focus or turn your head away from the screen and watch from your peripheral vision. How many flashes do you see?",
+        " 2. Click the box below 'Sound.' Do you notice any changes in what you see with no sound?",
+        "3. Turn sound back on. Manipulate the settings for the flash size, flash color, and flash transparency such that you see two flashes or a pulsing flash when there are two clicks and one flash when there is one click. Remember to try watching with 'fuzzy' focus and out of your peripheral vision.",
+        "4. You can also change the temporal controls that determine the separation between the flash with one and the flash with two clicks. The flash duration can also be manipulated.",
+        "5. At any point, click 'reset' to load the default settings"
+        ],
+    "boundry" : [70, 50, 130, 85, 50]
+}

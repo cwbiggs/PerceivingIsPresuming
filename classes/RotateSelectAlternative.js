@@ -4,7 +4,7 @@
 
 //Class to draw a labelled rectangle that changes text when clicked in a loop
 //arguments: initial value in loop, rect params, item list
-function RotateSelect(init, x, y, x1, y1, items) {
+function RotateSelectAlternative(init, x, y, x1, y1, items) {
   var current = init; //initial sound file
   var clicked = false; //is the rectangle clicked
   var frameClicked = 0; //count the click

@@ -59,4 +59,8 @@ function RotateSelect(init, x, y, x1, y1, items) {
   this.reset=function(){
     current = init;
   }
+  
+  this.value=function(){
+    return current;
+  }
 }

@@ -154,6 +154,7 @@ function Interface(n, x, y, x1, y1) {
   this.workshopCirc = function (cs, o) {
     ellipseMode(CENTER);
     //calculate center for circle position and offset by x and y
+    noFill();
     ellipse(x1 * 0.5 + x, cs * 0.5 + y + o, cs, cs);
   };
 }

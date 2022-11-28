@@ -1,9 +1,0 @@
-{
-    "text" : ["1. Click on the gray rectangle and drag it over the 'A' and 'B'. Do not Drag too fast.",
-        " 2. When you release the mouse button the border of the rectangle will disappear. It will reappear when you click on the rectangle again.",
-        "3. Click 'Reset' to return the rectangle to its initial position.",
-        "4. Click the box below 'Show Connection' to draw a 'bridge' between the top and the bottom. The 'bridge' is only one color.",
-        "5. Click the box below 'Show Outline' to see the borders of the 'bridge'"
-        ],
-    "boundry" : [50, 80, 50, 80, 100]
-}

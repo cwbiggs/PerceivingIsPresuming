@@ -1,6 +1,6 @@
 //RotateSelect Class
 //created by Christopher Biggs
-//updated 8/17/2022
+//updated 8/19/2022
 
 //Class to draw a labelled rectangle that changes text when clicked in a loop
 //arguments: initial value in loop, rect params, item list
@@ -25,11 +25,16 @@ function RotateSelect(init, x, y, x1, y1, items) {
     text(items[current], x+tx, y+ty);
     //test mouse location
     hover = mouseX >=x && mouseX <=x1+x && mouseY >= y && mouseY <= y1+y;
+    rotate();
+  }
+  
+  this.value=function(){
+    return current;
   }
   
   //method to change display text and return current index
   //arguments: na
-  this.rotate = function() {
+  function rotate() {
     clicked = mouseIsPressed;
     //if the mouse is pressed, set frameClicked to 1
     if (clicked) {
@@ -46,7 +51,7 @@ function RotateSelect(init, x, y, x1, y1, items) {
         }
       }
     }
-    return current;
+    //return current;
   }
 
   //show help text when hovering
@@ -58,9 +63,5 @@ function RotateSelect(init, x, y, x1, y1, items) {
   // reset to init state
   this.reset=function(){
     current = init;
-  }
-  
-  this.value=function(){
-    return current;
   }
 }

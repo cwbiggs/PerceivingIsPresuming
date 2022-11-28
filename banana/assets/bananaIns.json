@@ -1,9 +1,0 @@
-{
-    "text" : ["1. Click and drag the slider labelled 'color' until the color of the banana matches the gray color surrounding the banana",
-        " 2. Click the box below 'show values' to see if the color matches or not",
-        "3. Click 'change shape' and try to match the color of the rectangle, then click 'show values' to see the result",
-        "4. You can play with the additional slider values and repeat steps 1-3 again.",
-        "5. At any point, click 'reset' to load the default settings"
-        ],
-    "boundry" : [70, 50, 65, 50, 50]
-}
